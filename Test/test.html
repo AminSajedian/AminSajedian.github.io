@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Eduflow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="/static/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<link rel="shortcut icon" href="/static/favicon.ico">
+<!-- From https://medium.com/@applification/progressive-web-app-splash-screens-80340b45d210 -->
+<link
+  rel="apple-touch-icon"
+  sizes="192x192"
+  href="/static/app-icons/192x192.png"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-640x1136.png"
+  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-750x1294.png"
+  media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-1242x2148.png"
+  media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-1125x2436.png"
+  media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-1536x2048.png"
+  media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-1668x2224.png"
+  media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
+/>
+<link
+  rel="apple-touch-startup-image"
+  href="/static/app-icons/splash-2048x2732.png"
+  media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
+/>
+
+<!-- Twitter specific metatags to format link sharing on twitter, Setting default first and overriding for any course -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eduflowapp" />
+<meta property="og:title" content="Eduflow" />
+<meta property="og:description" content="Give your students a better feedback experience with Eduflow! An online platform that makes peer review easy and anonymous." />
+<meta property="og:image" content="https://app.eduflow.com/static/og-image.png" />
+
+<!-- Google fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+
+
+
+    
+    
+
+
+
+
+    <style>
+      @keyframes intro {
+        0%   { opacity: 0; transform: translateY(48px) rotate3d(1, 1, 1, 75deg); filter: blur(4px); }
+        100% { opacity: 1; transform: translateY(0);                             filter: blur(0);   }
+      }
+
+      @keyframes loader {
+        0%   { transform: rotate(0deg)   scale(1,1);     }
+        50%  { transform: rotate(360deg) scale(1.5,1.5); }
+        100% { transform: rotate(0deg)   scale(1,1);     }
+      }
+
+      @keyframes icon {
+        0%   { transform: scale(1,1);       }
+        50%  { transform: scale(1.25,1.25); }
+        100% { transform: scale(1,1);       }
+      }
+
+      @keyframes expand {
+        0%   { transform: scale(1,1);     opacity: 1; border-radius: 50%; filter: blur(2px); }
+        100% { transform: scale(3.5,3.5); opacity: 0; border-radius: 4%;  filter: blur(0);   }
+      }
+
+      body {
+        background: linear-gradient(0deg, #E6EAEF 0%, #F8F9FA 100%);
+        margin: 0;
+      }
+
+      .loader-wrapper {
+        height: 100vh;
+        width:  100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        position: relative;
+        animation: intro 1s;
+      }
+
+      .icon-wrapper svg {
+        z-index: 1;
+        animation: icon 3s infinite;
+        animation-delay: 1s;
+      }
+
+      .icon-wrapper:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #fff;
+        border-radius: 4px;
+        z-index: -1;
+        animation: expand 1.5s infinite;
+        animation-delay: 1s;
+      }
+
+      .icon-wrapper:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #006CFA;
+        border-radius: 4px;
+        animation: loader 3s infinite;
+        animation-delay: 1s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>
+      <a href="http://enable-javascript.com/">Javascript must be enabled to use this site.</a>
+    </noscript>
+    <div id="react-root">
+      <div class="loader-wrapper">
+        <div class="icon-wrapper">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <path d="M2.82353 2.5002C2.82353 1.67286 3.56098 1.04019 4.3787 1.16599L14.2351 2.68236C14.709 2.75527 15.0588 3.16301 15.0588 3.64246C15.0588 4.2083 14.5771 4.65438 14.0129 4.61098L4.06991 3.84614C3.36661 3.79204 2.82353 3.20558 2.82353 2.5002Z" fill="#fff"></path>
+            <path d="M1.88235 13.4927C1.88235 12.7772 2.43705 12.1843 3.1509 12.1367L14.9675 11.349C15.5263 11.3117 16 11.7549 16 12.3149C16 12.8001 15.6408 13.2104 15.1599 13.2745L3.4209 14.8397C2.60624 14.9483 1.88235 14.3145 1.88235 13.4927Z" fill="#fff"></path>
+            <path d="M1.41051 6.63276C0.641188 6.60072 0 7.21576 0 7.98576C0 8.75577 0.641223 9.37082 1.41057 9.33875L10.3538 8.96593C10.8793 8.94402 11.2941 8.51158 11.2941 7.98557C11.2941 7.45955 10.8793 7.0271 10.3537 7.00521L1.41051 6.63276Z" fill="#fff"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script>
+  (function(){
+    window.eduflow = window.eduflow || {}
+    window.eduflow.constants = {
+      INTERCOM_APP_ID: 'hitqviyj',
+      INTERCOM_ENABLED: true,
+      FRESHPAINT_ENABLED: false,
+      GOOGLE_ANALYTICS_ENABLED: true,
+      FACEBOOK_PIXEL_ENABLED: true,
+      SENTRY_ENABLED: true,
+      SENTRY_TRACES_SAMPLE_RATE_JS: 0.0,
+      SENTRY_ENVIRONMENT: 'PRODUCTION',
+      SENTRY_RELEASE: '',
+      WEBPACK_BUNDLE_VERSION: '19ab8df215b60026ef78',
+      NOTIFLY_ENABLED: true,
+      NOTIFLY_HTTPS_URL: 'https://app.notifly.io',
+      NOTIFLY_WSS_URL: 'wss://app.notifly.io',
+      NOTIFLY_APP_ID: '29656097e7c0218091b2aaf7f76365b813c65a0e5216459f35bdd294fa6ec349',
+      STRIPE_PUBLISHABLE_KEY: 'pk_live_51HEstsLLtJAS0eYfLXcLA6gtHmAYzJGPxrwYP37fSoaJ5PjBL19k1ngKXu0xzcKIqSCxpozJnbDQKNYnOiuZmE0I00JAHWGfPf',
+      GQL_SUBSCRIPTION_SERVER: 'wss://ws.app.eduflow.com:443',
+    }
+  })()
+</script>
+
+
+    <script type="text/javascript" src="/static/build/778.2bfa89ed36849e0271b1.js" ></script>
+<script type="text/javascript" src="/static/build/react_spa.19ab8df215b60026ef78.js" ></script>
+
+    
+    
+    
+
+    
+    
+    <script >
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-69294034-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+
+
+    
+
+    
+
+    
+    
+    <script>
+      window.intercomSettings = {
+        app_id: 'hitqviyj',
+        custom_launcher_selector: '#custom_intercom_launcher',
+        hide_default_launcher: true,
+      };
+    </script>
+    <script >(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/hitqviyj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+    
+
+    
+    <script >
+      !function (w, d, i, s) {
+        function l() {
+          if (!d.getElementById(i)) {
+            var f = d.getElementsByTagName(s)[0],
+              e = d.createElement(s);
+            e.type = "text/javascript", e.async = !0, e.src = "https://canny.io/sdk.js", f.parentNode.insertBefore(e, f)
+          }
+        }
+        if ("function" != typeof w.Canny) {
+          var c = function () {
+            c.q.push(arguments)
+          };
+          c.q = [], w.Canny = c, "complete" === d.readyState ? l() : w.attachEvent ? w.attachEvent("onload", l) : w.addEventListener("load", l, !1)
+        }
+      }(window, document, "canny-jssdk", "script");
+    </script>
+    
+
+
+
+    
+    <script>
+     (function(){
+        w=window;n=w.Notifly=function(){n.q.push(arguments)};n.q=[];
+        d=document;s=d.createElement("script");s.src="https://app.notifly.io/static/v2/notifly.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+   </script>
+    
+
+  </body>
+
+</html>
