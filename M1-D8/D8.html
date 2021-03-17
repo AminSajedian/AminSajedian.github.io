@@ -131,11 +131,9 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       /* EXTRA */
       const changeTaskBackgroundColor = () => {
         colorPicker = document.getElementById("colorPicker");
-        ListItem = document.getElementsByClassName("ListItem");
+        myTaskList = document.getElementById("myTaskList");
         colorPicker.addEventListener("change", () => {
-          for (let item of ListItem) {
-            item.style.backgroundColor = colorPicker.value;
-          }
+          myTaskList.style.backgroundColor = colorPicker.value;
         });
       };
       /* EXERCISE 10:
