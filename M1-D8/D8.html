@@ -89,6 +89,8 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 - Append the child to the UL
             */
       const addNewTask = () => {
+        if (document.getElementById("newTask").value == "")
+                    return
         newTask = document.getElementById("newTask");
         myTaskList = document.getElementById("myTaskList");
         newListItem = document.createElement("li");
