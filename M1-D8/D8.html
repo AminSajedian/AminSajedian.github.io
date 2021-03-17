@@ -89,8 +89,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 - Append the child to the UL
             */
       const addNewTask = () => {
-        if (document.getElementById("newTask").value == "")
-                    return
+        if (document.getElementById("newTask").value == "") return;
         newTask = document.getElementById("newTask");
         myTaskList = document.getElementById("myTaskList");
         newListItem = document.createElement("li");
@@ -118,11 +117,11 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             */
       const getTasksAsArray = () => {
         ListItems = document.getElementsByClassName("ListItem");
-        let taskArray = []
+        let taskArray = [];
         for (let i = 0; i < ListItems.length; i++) {
-          taskArray[i]=ListItems[i].innerText
+          taskArray[i] = ListItems[i].innerText;
         }
-        return taskArray
+        return taskArray;
       };
       /* EXERCISE 9:
                Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
@@ -133,10 +132,11 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       const changeTaskBackgroundColor = () => {
         colorPicker = document.getElementById("colorPicker");
         ListItem = document.getElementsByClassName("ListItem");
-        for (let item of ListItem) {
-          item.style.backgroundColor = colorPicker.value;
-        }
-        colorPicker.addEventListener("change", () => {});
+        colorPicker.addEventListener("change", () => {
+          for (let item of ListItem) {
+            item.style.backgroundColor = colorPicker.value;
+          }
+        });
       };
       /* EXERCISE 10:
                Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
@@ -164,10 +164,10 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
           }
         }
         for (let i = 0; i < ListItems.length; i++) {
-          ListItems[i].innerText="";
+          ListItems[i].innerText = "";
         }
         for (let i = 0; i < ListItems.length; i++) {
-          ListItems[i].innerText=inputArr[i];
+          ListItems[i].innerText = inputArr[i];
         }
       };
     </script>
