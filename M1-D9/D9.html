@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BINGO board</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+      input,
+      label,
+      table {
+        align-self: center;
+      }
+      div #bingo {
+        align-self: center;
+      }
+      table {
+        border: 1px solid black;
+      }
+      td {
+        border: 1px solid black;
+        border-radius: 50%;
+        text-align: center;
+      }
+      mark {
+        border-radius: 40%;
+      }
+      button {
+        margin-top: 5px;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="form">
+      <label for="number">How many times would you like to play?</label><br />
+      <input
+        type="number"
+        name="HowManyTimes"
+        id="NumberOfTimes"
+        required
+      /><br />
+      <input type="button" value="Start" id="HowManyTimesButton" /><br />
+    </div>
+    <div id="bingo"></div>
+    <script>
+      // BINGO CHALLENGE!!!
+      // - Let the user choose HOW MANY user boards he's willing to play with and create them.
+      let selectedNumbers = [];
+
+      let HowManyTimesButton = document.getElementById("HowManyTimesButton");
+      HowManyTimesButton.onclick = () => {
+        let NumberOfTimes = document.getElementById("NumberOfTimes").value;
+        console.log("NumberOfTimes:", NumberOfTimes);
+        for (let y = 0; y < NumberOfTimes; y++) {
+          selectedNumbers[y] = [];
+
+          // Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+          // 76 = 4 * 19; 4 columns and 19 rows
+          const bingo = document.getElementById("bingo");
+          const bingoBoard = document.createElement("table");
+          bingoBoard.classList.add("bingoBoard");
+          let x = 1;
+          for (let i = 1; i <= 19; i++) {
+            bingoBoardRow = document.createElement("tr");
+            for (let j = x; j <= x + 3; j++) {
+              bingoBoardCell = document.createElement("td");
+              bingoBoardCell.classList.add("number");
+              bingoBoardCell.innerText = j;
+              bingoBoardRow.appendChild(bingoBoardCell);
+              bingoBoard.appendChild(bingoBoardRow);
+              bingo.append(bingoBoard);
+            }
+            x = x + 4;
+          }
+
+          // Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+          const button = document.createElement("button");
+          button.innerText = "Bingo";
+          button.onclick = () => {
+            number = document.getElementsByClassName("number");
+            randomNumber = Math.floor(Math.random() * 76) + 1;
+
+            // - Create a USER BOARD with 24 randomized numbers that highlights as the main board does
+            if (selectedNumbers[y].length != 24) {
+              for (let i = 0; i < selectedNumbers[y].length; i++) {
+                // - Take ALWAYS a new number (eg. avoid randoming the number 10 3 times)
+                if (randomNumber === selectedNumbers[y][i]) {
+                  randomNumber = Math.floor(Math.random() * 76) + 1;
+                  i = 0;
+                }
+              }
+              selectedNumbers[y].push(randomNumber);
+
+              for (let i = 0; i < number.length; i++) {
+                if (randomNumber === i + 1) {
+                  number[i].innerHTML = `<mark>${randomNumber}</mark>`;
+                }
+              }
+            } else {
+              alert("You 24 randomized numbers, you can Bingo any more");
+            }
+          };
+          bingo.append(button);
+        }
+      };
+    </script>
+  </body>
+</html>
