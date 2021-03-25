@@ -145,26 +145,32 @@
       };
 
       // - The user should be able to set the number of teams he wants, so that they will be generated. A team is just another list to be displayed.
+      // - Each team should be inside a "column" to be responsive.
       PreviousTeamsNumber = document.getElementById("TeamsNumber").value;
       const TeamsNumberF = () => {
         CurrentTeamsNumber = document.getElementById("TeamsNumber").value;
         teamsList = document.getElementById("teamsList");
-        console.log("CurrentTeamsNumber:", CurrentTeamsNumber);
-        console.log("PreviousTeamsNumber:", PreviousTeamsNumber);
-        console.log("--------------");
-        if (CurrentTeamsNumber > PreviousTeamsNumber && CurrentTeamsNumber!=0) {
-          teamsList.innerHTML += `<div class="col mb-3 mb-lg-0 px-1" id="team${CurrentTeamsNumber}">
+        if (
+          CurrentTeamsNumber > PreviousTeamsNumber &&
+          CurrentTeamsNumber != 0
+        ) {
+          teamsList.innerHTML += `
+            <div class="col mb-3 mb-lg-0 px-1" id="team${CurrentTeamsNumber}">
               <h2>Team ${CurrentTeamsNumber}</h2>
               <ul>
               </ul>
             </div>`;
           PreviousTeamsNumber = CurrentTeamsNumber;
         } else if (CurrentTeamsNumber < PreviousTeamsNumber) {
-          console.log("teamsList:", teamsList);
           teamsList.lastChild.remove();
           PreviousTeamsNumber = CurrentTeamsNumber;
         }
       };
+      // - [EXTRA] Create a button to remove a user from a team, and putting him back in the main list, waiting to be reassigned.
+      const DeleteF = () => {};
+      // li.innerHTML+=` <input type="button" value="Delete" onclick="DeleteF()" />`
+      // create a unique ID for each name
+
       // - An "Assign" button will be required in order to launch the team generation functionality.
       // - Every time the user clicks on the "Assign" button, a random name is placed in a team and removed from the initial list.
       function randomTeam() {
@@ -181,8 +187,7 @@
           ListItem[0].remove();
         }
       };
-      // - Each team should be inside a "column" to be responsive.
-      // - [EXTRA] Create a button to remove a user from a team, and putting him back in the main list, waiting to be reassigned.
+
       // - [EXTRA] Create a button to reset the state of the app.
       const resetF = () => {
         mainList = document.getElementById("mainList");
