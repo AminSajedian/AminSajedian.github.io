@@ -181,8 +181,8 @@
       const resetF = () => {
         mainList = document.getElementById("mainList");
         mainList.innerHTML = "";
-        teams=document.querySelectorAll("teamsList")
-        for (let i = 1; i < teams.length+1; i++) {
+        teamsList=document.querySelectorAll("#teamsList div")
+        for (let i = 1; i <= teamsList.length; i++) {
           teamNumber = document.querySelectorAll(`#team${i} ul`);
           console.log('teamNumber:', teamNumber)
           for (let j = 0; j < teamNumber.length; j++) {
