@@ -92,7 +92,7 @@
           type="number"
           name="TeamsNumber"
           id="TeamsNumber"
-          value="1"
+          value="0"
           onchange="TeamsNumberF()"
         />
       </div>
@@ -118,10 +118,10 @@
           class="row no-gutters row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-4"
           id="teamsList"
         >
-          <div class="col mb-3 mb-lg-0 px-1" id="team1">
+          <!-- <div class="col mb-3 mb-lg-0 px-1" id="team1">
             <h2>Team 1</h2>
             <ul></ul>
-          </div>
+          </div> -->
         </div>
         <hr />
       </div>
@@ -149,14 +149,20 @@
       const TeamsNumberF = () => {
         CurrentTeamsNumber = document.getElementById("TeamsNumber").value;
         teamsList = document.getElementById("teamsList");
-        if (CurrentTeamsNumber > PreviousTeamsNumber) {
+        console.log("CurrentTeamsNumber:", CurrentTeamsNumber);
+        console.log("PreviousTeamsNumber:", PreviousTeamsNumber);
+        console.log("--------------");
+        if (CurrentTeamsNumber > PreviousTeamsNumber && CurrentTeamsNumber!=0) {
           teamsList.innerHTML += `<div class="col mb-3 mb-lg-0 px-1" id="team${CurrentTeamsNumber}">
-            <h2>Team ${CurrentTeamsNumber}</h2>
-            <ul>
-            </ul>
-          </div>`;
+              <h2>Team ${CurrentTeamsNumber}</h2>
+              <ul>
+              </ul>
+            </div>`;
+          PreviousTeamsNumber = CurrentTeamsNumber;
         } else if (CurrentTeamsNumber < PreviousTeamsNumber) {
-          // remove the last child of teamsList
+          console.log("teamsList:", teamsList);
+          teamsList.lastChild.remove();
+          PreviousTeamsNumber = CurrentTeamsNumber;
         }
       };
       // - An "Assign" button will be required in order to launch the team generation functionality.
@@ -181,10 +187,10 @@
       const resetF = () => {
         mainList = document.getElementById("mainList");
         mainList.innerHTML = "";
-        teamsList=document.querySelectorAll("#teamsList div")
+        teamsList = document.querySelectorAll("#teamsList div");
         for (let i = 1; i <= teamsList.length; i++) {
           teamNumber = document.querySelectorAll(`#team${i} ul`);
-          console.log('teamNumber:', teamNumber)
+          console.log("teamNumber:", teamNumber);
           for (let j = 0; j < teamNumber.length; j++) {
             teamNumber[j].innerHTML = "";
           }
