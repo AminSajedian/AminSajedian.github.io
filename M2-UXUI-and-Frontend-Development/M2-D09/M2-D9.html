@@ -24,12 +24,22 @@
         top: 1%;
         left: 1%;
       }
-      table > tbody > tr{
-          transition: all 0.2s;
+      table > tbody > tr {
+        transition: background-color 0.2s;
+        transition: color 0.2s;
       }
-      table > tbody > tr:hover{
+      table > tbody > tr:hover {
         background-color: black;
         color: whitesmoke;
+      }
+      /* <!-- EXERCISE 9
+             Add a button "Add Track" under the track list the album, add a nice shadow transition when the button is hovered
+      --> */
+      #Track-List{
+        transition: box-shadow 0.5s;
+      }
+      #Add-Track:hover{
+        box-shadow: 0 0 10px #515151;
       }
     </style>
 
@@ -79,15 +89,6 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link disabled"
-              href="#"
-              tabindex="-1"
-              aria-disabled="true"
-              >Disabled</a
-            >
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -238,7 +239,7 @@
             Clicking on the button the row must disappear. 
             Add a fade-out effect using a CSS transition effect
         -->
-    <div class="container">
+    <div class="container" id="Track-List">
       <h2>Track List</h2>
       <table class="table">
         <thead class="thead-dark">
@@ -343,7 +344,11 @@
           </tr>
         </tbody>
       </table>
+      <a id="Add-Track" href="" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Track</a>
+
     </div>
+
+    
 
     <!-- EXERCISE 7
             Add a "Contact Me" form in the footer.
@@ -352,28 +357,74 @@
             - Text of the message
             Use the correct Bootstrap styles for styling the buttons
         -->
-        <footer>
-            <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <textarea name="textarea" id="textarea" cols="30" rows="10" placeholder="Type your message here"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Send</button>
-              </form>
-        </footer>
     <!-- EXERCISE 8 
             Add to the footer an extra column with the same links of the top nav.
         -->
+    <!-- footer -->
+    <div class="container">
+      <hr />
+      <footer>
+        <form>
+          <h2>Contact Me</h2>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <textarea
+              name="textarea"
+              id="textarea"
+              cols="30"
+              rows="10"
+              placeholder="Type your message here..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <hr />
+        <h2>Links:</h2>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- /footer -->
 
-    <!-- EXERCISE 9
-            Add a button "Add Track" under the track list the album, add a nice shadow transition when the button is hovered
-        -->
-
+    
     <!-- EXERCISE 10
             On "Add Track" button, open a new modal.
             The modal shall contain a form with:
