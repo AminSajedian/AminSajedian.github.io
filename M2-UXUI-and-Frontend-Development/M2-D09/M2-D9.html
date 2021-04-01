@@ -25,8 +25,8 @@
         left: 1%;
       }
       table > tbody > tr {
-        transition: background-color 0.2s;
-        transition: color 0.2s;
+        transition: background-color 1s;
+        transition: color 1s;
       }
       table > tbody > tr:hover {
         background-color: black;
@@ -388,43 +388,77 @@
             - Live Track (checkbox)
             The fields should be inside an Input Group and divided in 2 columns.
         -->
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Track number</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Track name</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Track length</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >Track number</span
+                >
+              </div>
+              <input
+                type="number"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Track featuring</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >Track name</span
+                >
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Live Track (checkbox):
-            </span>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >Track length</span
+                >
+              </div>
+              <input
+                type="number"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >Track featuring</span
+                >
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+
+            <div class="input-group mb-3 justify-content-center">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"
+                  >Live Track:
+                </span>
+                <div class="input-group-text">
+                  <input
+                    type="checkbox"
+                    aria-label="Checkbox for following text input"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-       <input type="checkbox" name="" id="">
-      </div>
-        
-          </div>
+
           <div class="modal-footer">
             <button
               type="button"
@@ -452,7 +486,7 @@
     <!-- footer -->
     <div class="container">
       <hr />
-      <footer>
+      <footer class="mb-5">
         <form>
           <h2>Contact Me</h2>
           <div class="form-group">
@@ -479,19 +513,18 @@
           <button type="submit" class="btn btn-primary">Send</button>
         </form>
         <hr />
+
         <h2>Links:</h2>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
+        <div class="row mb-md-2 justify-content-center">
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-md-2 mb-sm-2">
+            <a class="nav-link text-center" href="#">Home</a>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-md-2 mb-sm-2">
+            <a class="nav-link text-center" href="#">Link</a>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-md-2 mb-sm-2">
             <a
-              class="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle text-center"
               href="#"
               id="navbarDropdown"
               role="button"
@@ -507,8 +540,8 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </footer>
     </div>
     <!-- /footer -->
@@ -568,11 +601,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     -->
-    <script>
-      $("#myModal").on("shown.bs.modal", function () {
-        $("#myInput").trigger("focus");
-      });
-    </script>
   </body>
 </html>
 
