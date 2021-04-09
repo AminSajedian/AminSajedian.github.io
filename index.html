@@ -34,67 +34,172 @@
     <link href="0-assets/css/sidebar.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="p-3 bg-dark" style="width: 320px">
-        <a
+    <div class="p-2 bg-dark" style="width: 320px">
+      <a
         href="/"
         class="d-flex pb-3 mb-3 link-light text-decoration-none border-bottom justify-content-center"
       >
-      <span class="fs-6 fw-semibold">Full Stack Developer Progress</span>
+        <span class="fs-6 fw-semibold">Full Stack Developer Progress</span>
       </a>
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1">
+      <ul class="modules-list list-unstyled ps-0">
+        <li class="module mb-1">
           <button
-            class="btn btn-toggle rounded collapsed text-start"
+            class="btn btn-toggle rounded collapsed"
             data-bs-toggle="collapse"
             data-bs-target="#M1-collapse"
             aria-expanded="false"
-          >M1 Principles of programming
+          >
+            <span class="arrow"></span> <span class="module-title">M1 Principles of programming</span>
           </button>
           <div class="collapse" id="M1-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal p-1">
-                <li><a href="1-M1-Principles-of-programming/M1-D02/M1-D2.js" class="link-light rounded">M1-D2-Setup & JavaScript</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D03/M1-D3.js" class="link-light rounded">M1-D3-JS - Arrays, Objects, Loops</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D04/M1-D4.js" class="link-light rounded">M1-D4-Git & GitHub, JS Functions</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D05/M1-D5.js" class="link-light rounded">M1-D5-Solo Project</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D06/M1-D6.html" class="link-light rounded">M1-D6-General recap & DOM Manipulation</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D07/M1-D7.html" class="link-light rounded">M1-D7-HTML5, inputs, events, devTools</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D08/M1-D8.html" class="link-light rounded">M1-D8-Task List</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D09/M1-D9.html" class="link-light rounded">M1-D9-Bingo Game</a></li>
-                <li><a href="1-M1-Principles-of-programming/M1-D10/M1-D10.html" class="link-light rounded">M1-D10-Quiz Game</a></li>
-                </ul>
-          </div>
-        </li>
-        <li class="mb-1">
-          <button
-            class="btn btn-toggle rounded collapsed text-start"
-            data-bs-toggle="collapse"
-            data-bs-target="#M2-collapse"
-            aria-expanded="false"
-          >M2 UX/UI and Frontend Development
-          </button>
-          <div class="collapse" id="M2-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal p-1">
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D02/M2-D2.html" class="link-light rounded">M2-D2-Music Albums</a></li>
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D03/M2-D3.html" class="link-light rounded">M2-D3-Travel Team Work</a></li>
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D04/M2-D4.html" class="link-light rounded">M2-D4-Team Generator</a></li>
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D05/M2-D5.html" class="link-light rounded">M2-D5-Netflix</a></li>
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D07/M2-D7.html" class="link-light rounded">M2-D7-Blog Template</a></li>
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D08/M2-D8.html" class="link-light rounded">M2-D8-Colab Exercises</a></li>
-                <li><a href="2-M2-UXUI-and-Frontend-Development/M2-D09/M2-D9.html" class="link-light rounded">M2-D9-Albums</a></li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D02/M1-D2.js"
+                  class="link-light rounded"
+                  >M1-D2-Setup & JavaScript</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D03/M1-D3.js"
+                  class="link-light rounded"
+                  >M1-D3-JS - Arrays, Objects, Loops</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D04/M1-D4.js"
+                  class="link-light rounded"
+                  >M1-D4-Git & GitHub, JS Functions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D05/M1-D5.js"
+                  class="link-light rounded"
+                  >M1-D5-Solo Project</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D06/M1-D6.html"
+                  class="link-light rounded"
+                  >M1-D6-General recap & DOM Manipulation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D07/M1-D7.html"
+                  class="link-light rounded"
+                  >M1-D7-HTML5, inputs, events, devTools</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D08/M1-D8.html"
+                  class="link-light rounded"
+                  >M1-D8-Task List</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D09/M1-D9.html"
+                  class="link-light rounded"
+                  >M1-D9-Bingo Game</a
+                >
+              </li>
+              <li>
+                <a
+                  href="1-M1-Principles-of-programming/M1-D10/M1-D10.html"
+                  class="link-light rounded"
+                  >M1-D10-Quiz Game</a
+                >
+              </li>
             </ul>
           </div>
         </li>
-        <li class="mb-1">
+        <li class="module mb-1">
           <button
-            class="btn btn-toggle rounded collapsed text-start"
+            class="btn btn-toggle rounded collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#M2-collapse"
+            aria-expanded="false"
+          >
+          <span class="arrow"></span><span class="module-title">M2 UX/UI and Frontend Development</span>
+          </button>
+          <div class="collapse" id="M2-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal p-1">
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D02/M2-D2.html"
+                  class="link-light rounded"
+                  >M2-D2-Music Albums</a
+                >
+              </li>
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D03/M2-D3.html"
+                  class="link-light rounded"
+                  >M2-D3-Travel Team Work</a
+                >
+              </li>
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D04/M2-D4.html"
+                  class="link-light rounded"
+                  >M2-D4-Team Generator</a
+                >
+              </li>
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D05/M2-D5.html"
+                  class="link-light rounded"
+                  >M2-D5-Netflix</a
+                >
+              </li>
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D07/M2-D7.html"
+                  class="link-light rounded"
+                  >M2-D7-Blog Template</a
+                >
+              </li>
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D08/M2-D8.html"
+                  class="link-light rounded"
+                  >M2-D8-Colab Exercises</a
+                >
+              </li>
+              <li>
+                <a
+                  href="2-M2-UXUI-and-Frontend-Development/M2-D09/M2-D9.html"
+                  class="link-light rounded"
+                  >M2-D9-Albums</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="module mb-1">
+          <button
+            class="btn btn-toggle rounded collapsed"
             data-bs-toggle="collapse"
             data-bs-target="#B1-collapse"
             aria-expanded="false"
-          >Build Week #1
+          >
+          <span class="arrow"></span><span class="module-title">Build Week #1</span>
           </button>
           <div class="collapse" id="B1-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal p-1">
-                <li><a href="https://leonardovezzati.github.io/Spotify-Clone/index.html" class="link-light rounded">Spotify Clone</a></li>
+              <li>
+                <a
+                  href="https://leonardovezzati.github.io/Spotify-Clone/index.html"
+                  class="link-light rounded"
+                  >Spotify Clone</a
+                >
+              </li>
             </ul>
           </div>
         </li>
