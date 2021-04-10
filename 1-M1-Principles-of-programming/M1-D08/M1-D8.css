@@ -1,0 +1,21 @@
+body {
+    background-color: rgba(128, 128, 128, 0.74);
+  }
+  /* EXERCISE 2:  
+   Create a CSS class for the task list with a diverse background
+   */
+  /* Create a CSS class for the task list item with a border, a bold text and a bigger font size */
+  #myTaskList {
+    background-color: rgba(0, 82, 255, 0.8);
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  /* Style every button of the page to be bigger */
+  input[type="button"] {
+    font-size: 1.2rem;
+  }
+  input[type="text"] {
+    font-size: 1.1rem;
+  }
