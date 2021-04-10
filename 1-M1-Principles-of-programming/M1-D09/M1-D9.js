@@ -1,6 +1,6 @@
 // BINGO CHALLENGE!!!
 window.onload = () => {
-    // Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+    // Create programmatically (with JS) a BINGO board with 50 cells, from 1 to 50.
     // Main Borad
     const MainBorad = document.getElementById("MainBorad");
     const MainBoradTable = document.createElement("table");
