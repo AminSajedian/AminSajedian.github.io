@@ -21,7 +21,7 @@ window.onload = () => {
       x = x + 10;
     }
 
-    // Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+    // Create a button to randomize a number from 1 to 50. The same number should be highlighted on the bingo board
     const button = document.createElement("button");
     button.innerText = "Bingo";
     MainBorad.appendChild(button);
