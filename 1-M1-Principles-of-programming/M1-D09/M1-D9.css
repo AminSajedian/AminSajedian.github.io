@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+input,
+label,
+table {
+  margin: 5px;
+  align-self: center;
+}
+div #bingo {
+  align-self: center;
+}
+table {
+  border: 1px solid black;
+}
+td {
+  border: 1px solid black;
+  border-radius: 50%;
+  text-align: center;
+}
+mark {
+  border-radius: 40%;
+}
+button {
+  margin-top: 5px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
