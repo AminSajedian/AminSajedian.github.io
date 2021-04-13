@@ -128,9 +128,13 @@
           .then((data) => {
             document.getElementById("eminem").innerText=""
 
+            document.getElementById("eminem").innerHTML = `
+              <div class="col-12 d-flex" style="overflow-x:scroll" id="eminem-content"></div>
+            `
+
             for (let i = 0; i < data.data.length; i++) {
               // create a <div class="col-12 col-sm-4 col-md-3">
-              const dataDiv = document.createElement("div");
+             /* const dataDiv = document.createElement("div");
               dataDiv.classList.add("col-12");
               dataDiv.classList.add("col-sm-4");
               dataDiv.classList.add("col-md-3");
@@ -143,7 +147,18 @@
               const titleDiv = document.createElement("div");
               titleDiv.innerText = data.data[i].album.title;
               dataDiv.appendChild(titleDiv);
-              document.getElementById("eminem").appendChild(dataDiv);
+              document.getElementById("eminem").appendChild(dataDiv);*/
+
+              const album = data.data[i].album
+              document.getElementById("eminem-content").innerHTML += `
+                <div class="card" style="min-width: 20%">
+                <img src="${album.cover_xl}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${album.title}</h5>
+                </div>
+              </div>
+              `
+
             }
           })
           .catch((e) => console.log("error:", e));
@@ -162,23 +177,36 @@
           .then((res) => res.json())
           .then((data) => {
             document.getElementById("metallica").innerText=""
+            document.getElementById("metallica").innerHTML = `
+              <div class="col-12 d-flex" style="overflow-x:scroll" id="metallica-content"></div>
+            `
 
             for (let i = 0; i < data.data.length; i++) {
               // create a <div class="col-12 col-sm-4 col-md-3">
-              const dataDiv = document.createElement("div");
-              dataDiv.classList.add("col-12");
-              dataDiv.classList.add("col-sm-4");
-              dataDiv.classList.add("col-md-3");
-              // image
-              const img = document.createElement("img");
-              img.src = data.data[i].album.cover;
-              img.classList.add("img-fluid");
-              dataDiv.appendChild(img);
-              // title
-              const titleDiv = document.createElement("div");
-              titleDiv.innerText = data.data[i].album.title;
-              dataDiv.appendChild(titleDiv);
-              document.getElementById("metallica").appendChild(dataDiv);
+              // const dataDiv = document.createElement("div");
+              // dataDiv.classList.add("col-12");
+              // dataDiv.classList.add("col-sm-4");
+              // dataDiv.classList.add("col-md-3");
+              // // image
+              // const img = document.createElement("img");
+              // img.src = data.data[i].album.cover;
+              // img.classList.add("img-fluid");
+              // dataDiv.appendChild(img);
+              // // title
+              // const titleDiv = document.createElement("div");
+              // titleDiv.innerText = data.data[i].album.title;
+              // dataDiv.appendChild(titleDiv);
+              // document.getElementById("metallica").appendChild(dataDiv);
+              const album = data.data[i].album
+              document.getElementById("metallica-content").innerHTML += `
+                <div class="card" style="min-width: 20%">
+                <img src="${album.cover_xl}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${album.title}</h5>
+                </div>
+              </div>
+              `
+
             }
           })
           .catch((e) => console.log("error:", e));
@@ -197,23 +225,35 @@
           .then((res) => res.json())
           .then((data) => {
             document.getElementById("behemoth").innerText=""
+            document.getElementById("behemoth").innerHTML = `
+              <div class="col-12 d-flex" style="overflow-x:scroll" id="behemoth-content"></div>
+            `
 
             for (let i = 0; i < data.data.length; i++) {
               // create a <div class="col-12 col-sm-4 col-md-3">
-              const dataDiv = document.createElement("div");
-              dataDiv.classList.add("col-12");
-              dataDiv.classList.add("col-sm-4");
-              dataDiv.classList.add("col-md-3");
-              // image
-              const img = document.createElement("img");
-              img.src = data.data[i].album.cover;
-              img.classList.add("img-fluid");
-              dataDiv.appendChild(img);
-              // title
-              const titleDiv = document.createElement("div");
-              titleDiv.innerText = data.data[i].album.title;
-              dataDiv.appendChild(titleDiv);
-              document.getElementById("behemoth").appendChild(dataDiv);
+              // const dataDiv = document.createElement("div");
+              // dataDiv.classList.add("col-12");
+              // dataDiv.classList.add("col-sm-4");
+              // dataDiv.classList.add("col-md-3");
+              // // image
+              // const img = document.createElement("img");
+              // img.src = data.data[i].album.cover;
+              // img.classList.add("img-fluid");
+              // dataDiv.appendChild(img);
+              // // title
+              // const titleDiv = document.createElement("div");
+              // titleDiv.innerText = data.data[i].album.title;
+              // dataDiv.appendChild(titleDiv);
+              // document.getElementById("behemoth").appendChild(dataDiv);
+              const album = data.data[i].album
+              document.getElementById("behemoth-content").innerHTML += `
+                <div class="card" style="min-width: 20%">
+                <img src="${album.cover_xl}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${album.title}</h5>
+                </div>
+              </div>
+              `
             }
           })
           .catch((e) => console.log("error:", e));
