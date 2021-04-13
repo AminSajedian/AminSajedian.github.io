@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <title>Spotify Exercise</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Albums:</h1>
+      <button onclick="loadEminemAlbums()">Eminem Albums</button>
+      <button onclick="loadMetallicaAlbums()">Metallica Albums</button>
+      <button onclick="loadBehemothAlbums()">Behemoth Albums</button>
+      <hr>
+      <div class="row" id="eminemImage"></div>
+      <h2>Eminem</h2>
+      <div class="row" id="eminem"></div>
+      <div class="row" id="metallicaImage"></div>
+      <h2>Metallica</h2>
+      <div class="row" id="metallica"></div>
+      <div class="row" id="behemothImage"></div>
+      <h2>Behemoth</h2>
+      <div class="row" id="behemoth"></div>
+    </div>
+    <script>
+      //  ************************* window.onload *************************
+      window.onload = () => {
+        fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "bb0c38bda7mshb7d1964ec077c37p139278jsn5198dcff737e",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.data[0].artist.picture);
+            // create a <div class="col-12 col-sm-4 col-md-3">
+              const dataDiv = document.createElement("div");
+              dataDiv.classList.add("col-12");
+              dataDiv.classList.add("col-sm-4");
+              dataDiv.classList.add("col-md-3");
+            // image
+            const img = document.createElement("img");
+              img.src = data.data[0].artist.picture;
+              img.classList.add("img-fluid");
+              dataDiv.appendChild(img);
+              document.getElementById("eminemImage").appendChild(dataDiv);
+          })
+          .catch((e) => console.log("error:", e));
+
+          fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=metallica", {
+            method: "GET",
+            headers: {
+              "x-rapidapi-key":
+                "bb0c38bda7mshb7d1964ec077c37p139278jsn5198dcff737e",
+              "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data.data[0].artist.picture);
+              // create a <div class="col-12 col-sm-4 col-md-3">
+                const dataDiv = document.createElement("div");
+                dataDiv.classList.add("col-12");
+                dataDiv.classList.add("col-sm-4");
+                dataDiv.classList.add("col-md-3");
+              // image
+              const img = document.createElement("img");
+                img.src = data.data[0].artist.picture;
+                img.classList.add("img-fluid");
+                dataDiv.appendChild(img);
+                document.getElementById("metallicaImage").appendChild(dataDiv);
+            })
+            .catch((e) => console.log("error:", e));
+
+          fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=behemoth", {
+            method: "GET",
+            headers: {
+              "x-rapidapi-key":
+                "bb0c38bda7mshb7d1964ec077c37p139278jsn5198dcff737e",
+              "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data.data[0].artist.picture);
+              // create a <div class="col-12 col-sm-4 col-md-3">
+                const dataDiv = document.createElement("div");
+                dataDiv.classList.add("col-12");
+                dataDiv.classList.add("col-sm-4");
+                dataDiv.classList.add("col-md-3");
+              // image
+              const img = document.createElement("img");
+                img.src = data.data[0].artist.picture;
+                img.classList.add("img-fluid");
+                dataDiv.appendChild(img);
+                document.getElementById("behemothImage").appendChild(dataDiv);
+            })
+            .catch((e) => console.log("error:", e));
+
+        };
+      //  ************************* Load Eminem Album *************************
+      const loadEminemAlbums = () => {
+        fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "bb0c38bda7mshb7d1964ec077c37p139278jsn5198dcff737e",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("eminem").innerText=""
+
+            for (let i = 0; i < data.data.length; i++) {
+              // create a <div class="col-12 col-sm-4 col-md-3">
+              const dataDiv = document.createElement("div");
+              dataDiv.classList.add("col-12");
+              dataDiv.classList.add("col-sm-4");
+              dataDiv.classList.add("col-md-3");
+              // image
+              const img = document.createElement("img");
+              img.src = data.data[i].album.cover;
+              img.classList.add("img-fluid");
+              dataDiv.appendChild(img);
+              // title
+              const titleDiv = document.createElement("div");
+              titleDiv.innerText = data.data[i].album.title;
+              dataDiv.appendChild(titleDiv);
+              document.getElementById("eminem").appendChild(dataDiv);
+            }
+          })
+          .catch((e) => console.log("error:", e));
+      };
+      //  *********************************************************************
+      //  ************************* Load Metallica Album *************************
+      const loadMetallicaAlbums = () => {
+        fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=metallica", {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "bb0c38bda7mshb7d1964ec077c37p139278jsn5198dcff737e",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("metallica").innerText=""
+
+            for (let i = 0; i < data.data.length; i++) {
+              // create a <div class="col-12 col-sm-4 col-md-3">
+              const dataDiv = document.createElement("div");
+              dataDiv.classList.add("col-12");
+              dataDiv.classList.add("col-sm-4");
+              dataDiv.classList.add("col-md-3");
+              // image
+              const img = document.createElement("img");
+              img.src = data.data[i].album.cover;
+              img.classList.add("img-fluid");
+              dataDiv.appendChild(img);
+              // title
+              const titleDiv = document.createElement("div");
+              titleDiv.innerText = data.data[i].album.title;
+              dataDiv.appendChild(titleDiv);
+              document.getElementById("metallica").appendChild(dataDiv);
+            }
+          })
+          .catch((e) => console.log("error:", e));
+      };
+      //  *********************************************************************
+      //  ************************* Load Behemoth Album *************************
+      const loadBehemothAlbums = () => {
+        fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=behemoth", {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "bb0c38bda7mshb7d1964ec077c37p139278jsn5198dcff737e",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("behemoth").innerText=""
+
+            for (let i = 0; i < data.data.length; i++) {
+              // create a <div class="col-12 col-sm-4 col-md-3">
+              const dataDiv = document.createElement("div");
+              dataDiv.classList.add("col-12");
+              dataDiv.classList.add("col-sm-4");
+              dataDiv.classList.add("col-md-3");
+              // image
+              const img = document.createElement("img");
+              img.src = data.data[i].album.cover;
+              img.classList.add("img-fluid");
+              dataDiv.appendChild(img);
+              // title
+              const titleDiv = document.createElement("div");
+              titleDiv.innerText = data.data[i].album.title;
+              dataDiv.appendChild(titleDiv);
+              document.getElementById("behemoth").appendChild(dataDiv);
+            }
+          })
+          .catch((e) => console.log("error:", e));
+      };
+      //  *********************************************************************
+
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
