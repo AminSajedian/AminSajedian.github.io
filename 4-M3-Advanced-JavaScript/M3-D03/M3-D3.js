@@ -2,7 +2,7 @@ const loadImagesBtn = () => {
   document.querySelector("main div.album div.container div.row").innerHTML = ""
   const cardDiv = document.querySelector("main div.album div.container div.row")
   loadImagesQueryInput = document.getElementById("loadImagesQueryInput").value
-  fetch(`http://www.splashbase.co/api/v1/images/search?query=${loadImagesQueryInput}`)
+  fetch(`https://splashbase.herokuapp.com/api/v1/images/search?query=${loadImagesQueryInput}`)
     .then(resp => resp.json())
     .then(result => {
       const alert = document.getElementById("alert")
@@ -65,7 +65,7 @@ const loadImagesBtn = () => {
     })
 }
 window.onload = (event) => {
-  fetch(`http://www.splashbase.co/api/v1/images/search?query=forest`)
+  fetch(`https://splashbase.herokuapp.com/api/v1/images/search?query=forest`)
     .then(resp => resp.json())
     .then(result => {
       const filteredResultImages = result.images.filter((value, index, array) => {
