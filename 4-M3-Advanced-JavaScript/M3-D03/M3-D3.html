@@ -57,6 +57,8 @@
     <link rel="stylesheet" href="M3-D3.css" />
   </head>
   <body>
+    <div class="alert alert-danger d-none text-center" role="alert" id="alert">
+    </div>
     <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -138,19 +140,6 @@
             <button class="btn btn-primary my-2" onclick="loadImagesBtn()">
               Load Images
             </button>
-            <br />
-            <input
-              type="text"
-              name="loadSecondaryImagesQuery"
-              id="loadSecondaryImagesQueryInput"
-              value="bike"
-            />
-            <button
-              class="btn btn-secondary my-2"
-              onclick="loadSecondaryImagesBtn()"
-            >
-              Load Secondary Images
-            </button>
           </p>
         </div>
       </section>
@@ -161,6 +150,11 @@
         </div>
       </div>
     </main>
+
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    </div>
+
 
     <footer class="text-muted">
       <div class="container">
