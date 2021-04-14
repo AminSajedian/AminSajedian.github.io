@@ -68,83 +68,21 @@ window.onload = (event) => {
   fetch(`http://www.splashbase.co/api/v1/images/search?query=forest`)
     .then(resp => resp.json())
     .then(result => {
-      const createCarousel = document.getElementById("carouselExampleSlidesOnly")
-
-
-      for (let i = 0; i < result.images.length; i++) {
-        // console.log(result.images[i].url);
-        createCarousel.innerHTML =
-          `<div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="${result.images[0].url}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="${result.images[1].url}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="${result.images[2].url}" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-          `
-      }
-
       const filteredResultImages = result.images.filter((value, index, array) => {
         return index < 3;
       });
-      for (let i = 0; i < filteredResultImages.length; i++) {
-        console.log(filteredResultImages[i].url)
-      }
 
-      // numbers.forEach(myFunction);
-      // function myFunction(value, index, array) {
-      //   txt = txt + value + "<br>";
-      // }
+      const carouselInner = document.getElementById("carousel-inner")
+      filteredResultImages.forEach((value) => {
+        carouselInner.innerHTML +=
+          `<div class="carousel-item">
+                <img src="${value.url}" class="d-block w-100" alt="...">
+              </div>
+              
+          `
+      });
 
-
-      // createCarousel.innerHTML = filteredResultImages.map(data => {
-      //   `<div class="carousel-inner">
-      //     <div class="carousel-item active">
-      //       <img src="${data.url}" class="d-block w-100" alt="...">
-      //     </div>
-      //     <div class="carousel-item">
-      //       <img src="${data.url}" class="d-block w-100" alt="...">
-      //     </div>
-      //     <div class="carousel-item">
-      //       <img src="${data.url}" class="d-block w-100" alt="...">
-      //     </div>
-      //   </div>
-      //   <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
-      //     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      //     <span class="sr-only">Previous</span>
-      //   </a>
-      //   <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
-      //     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      //     <span class="sr-only">Next</span>
-      //   </a>
-      //     `
-      // })
-
-
-      //   createCarousel.innerHTML = result.images.filter(Data =>
-      //     `<div class="carousel-inner">
-      //   <div class="carousel-item active">
-      //       <img src="..." class="d-block w-100" alt="...">
-      //   </div>
-      //   <div class="carousel-item">
-      //     <img src="..." class="d-block w-100" alt="...">
-      //   </div>
-      //   <div class="carousel-item">
-      //     <img src="..." class="d-block w-100" alt="...">
-      //   </div>
-      // </div>
-      // `)
+      const activeInnerCarousel = carouselInner.querySelector("div")
+      activeInnerCarousel.classList.add("active")
     })
 }
