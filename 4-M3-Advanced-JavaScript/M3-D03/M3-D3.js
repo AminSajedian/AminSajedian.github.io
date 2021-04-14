@@ -84,5 +84,10 @@ window.onload = (event) => {
 
       const activeInnerCarousel = carouselInner.querySelector("div")
       activeInnerCarousel.classList.add("active")
+
+      let total = result.images.reduce((total, images, currentIndex) => {
+        return total + currentIndex
+      }, 0)
+      console.log('total:', total)
     })
 }
