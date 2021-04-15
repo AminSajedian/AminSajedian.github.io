@@ -37,9 +37,17 @@
         <nav class="">
           <div class="dropdown">
             <button
+              class="btn btn-danger"
+              type="button"
+              id="CleanCartButton"
+              onclick="CleanCartFun()"
+            >
+              Clean Cart
+            </button>
+            <button
               class="btn btn-primary dropdown-toggle"
               type="button"
-              id="dropdownMenuButton"
+              id="cartListButton"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
@@ -48,7 +56,7 @@
             </button>
             <div
               class="dropdown-menu dropdown-menu-right cartList"
-              aria-labelledby="dropdownMenuButton"
+              aria-labelledby="cartListButton"
             ></div>
           </div>
         </nav>

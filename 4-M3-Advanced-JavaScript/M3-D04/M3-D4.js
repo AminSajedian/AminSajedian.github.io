@@ -130,7 +130,7 @@ const deleteItemFun = (event) => {
 
     const cardTitle = document.querySelectorAll(".card-title");
     cardTitle.forEach(element => {
-        if (element.innerText == selectedItem){
+        if (element.innerText == selectedItem) {
             element.closest(".card").removeAttribute("style")
         }
     });
@@ -138,5 +138,11 @@ const deleteItemFun = (event) => {
 
 // [EXTRA]
 // 8) Add a "clean cart" button, to clean the whole list.
+const CleanCartFun = () => {
+    const dropdownItem = document.querySelectorAll(".dropdown-item");
+    for (const Item of dropdownItem) {
+        Item.remove()
+    }
+}
 // 9) Create a second "detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
 // 10) In page "detail" show some details of the selected product (https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
