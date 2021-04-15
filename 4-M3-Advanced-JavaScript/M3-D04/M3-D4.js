@@ -106,7 +106,7 @@ const addToCartFun = (event) => {
     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
     </svg>
-    </button> <span>${cardText} -&nbsp;</span><span class="selected-item"> ${cardTitle}</span></div>`
+    </button> <span>${cardText} -&nbsp;</span><span class="selected-item">${cardTitle}</span></div>`
     let deleteItem = document.querySelectorAll(".delete-item");
     for (const b of deleteItem) {
         b.onclick = deleteItemFun;
@@ -144,5 +144,6 @@ const CleanCartFun = () => {
         Item.remove()
     }
 }
+
 // 9) Create a second "detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
 // 10) In page "detail" show some details of the selected product (https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
