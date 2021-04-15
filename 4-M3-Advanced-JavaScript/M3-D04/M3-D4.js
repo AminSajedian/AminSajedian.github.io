@@ -48,10 +48,8 @@ const loadBooks = (books) => {
     // 6-1)"search bar", When the user types more than 3 chars, you should filter the content of the page to show only the items with a matching name (hint: use .filter method)
     const searchFun = (event) => {
         searchQuery = event.currentTarget.value.toLowerCase()
-        // console.log(searchQuery)
         if (searchQuery.length >= 3) {
             const filteredBooks = bookCatalogue.filter(book => book.title.toLowerCase().indexOf(searchQuery) !== -1)
-            console.log(filteredBooks)
 
             const divRow = document.querySelector("div.container div.row.row-cols-1.row-cols-md-3");
             divRow.innerHTML = ""
@@ -133,8 +131,6 @@ const deleteItemFun = (event) => {
     const cardTitle = document.querySelectorAll(".card-title");
     cardTitle.forEach(element => {
         if (element.innerText == selectedItem){
-            console.log(element);
-            console.log(element.closest(".card"));
             element.closest(".card").removeAttribute("style")
         }
     });
