@@ -12,6 +12,8 @@ window.onload = () => {
 };
 let bookCatalogue = []
 // 1) Display the list of items available on the page using template literals `` and .forEach
+// 2) Add a "add to cart button"
+// 4) Add "skip" button next to each item
 const loadBooks = (books) => {
     bookCatalogue = books
     const divRow = document.querySelector("div.container div.row.row-cols-1.row-cols-md-3");
@@ -23,81 +25,21 @@ const loadBooks = (books) => {
                 <div class="card-body">
                     <h5 class="card-title text-center">${element.title}</h5>
                     <p class="card-text text-center text-danger"><strong>$${element.price}</strong></p>
-                    <button class="addToCartButton btn btn-primary">Add to Cart</button>
-                    <button class="skipButton btn btn-primary">Skip</button>
+                    <button class="addToCartButton btn btn-primary" onclick="addToCartFun(this)">Add to Cart</button>
+                    <button class="skipButton btn btn-primary" onclick="skipFun(this)">Skip</button>
                 </div>
             </div>
         </div>
         `;
     });
-
-
-    // 2) Add a "add to cart button"
-    let addToCartButton = document.querySelectorAll(".addToCartButton");
-    for (const b of addToCartButton) {
-        b.onclick = addToCartFun;
-    }
-
-    // 4) Add "skip" button next to each item
-    let skipButton = document.querySelectorAll(".skipButton");
-    for (const b of skipButton) {
-        b.onclick = skipFun;
-    }
-
-
-    // 6-1)"search bar", When the user types more than 3 chars, you should filter the content of the page to show only the items with a matching name (hint: use .filter method)
-    const searchFun = (event) => {
-        searchQuery = event.currentTarget.value.toLowerCase()
-        if (searchQuery.length >= 3) {
-            const filteredBooks = bookCatalogue.filter(book => book.title.toLowerCase().indexOf(searchQuery) !== -1)
-
-            const divRow = document.querySelector("div.container div.row.row-cols-1.row-cols-md-3");
-            divRow.innerHTML = ""
-            filteredBooks.forEach((element) => {
-                divRow.innerHTML += `
-        <div class="col mb-4">
-            <div class="card h-100">
-                <img src="${element.img}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">${element.title}</h5>
-                    <p class="card-text text-center text-danger"><strong>$${element.price}</strong></p>
-                    <button class="addToCartButton btn btn-primary">Add to Cart</button>
-                    <button class="skipButton btn btn-primary">Skip</button>
-                </div>
-            </div>
-        </div>
-        `;
-            });
-        } else {
-            divRow.innerHTML = ""
-            books.forEach((element) => {
-                divRow.innerHTML += `
-        <div class="col mb-4">
-            <div class="card h-100">
-                <img src="${element.img}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">${element.title}</h5>
-                    <p class="card-text text-center text-danger"><strong>$${element.price}</strong></p>
-                    <button class="addToCartButton btn btn-primary">Add to Cart</button>
-                    <button class="skipButton btn btn-primary">Skip</button>
-                </div>
-            </div>
-        </div>
-        `;
-            });
-        }
-    }
-    // 6-2) Add a "search bar"
-    let searchInput = document.querySelectorAll(".searchInput");
-    for (const b of searchInput) {
-        b.onkeyup = searchFun;
-    }
-
 }
+
+
 // 3) When the button is pressed, change the style of the item and add it to another list
 const addToCartFun = (event) => {
+    console.log('event:', event)
     const cartList = document.querySelector(".cartList");
-    const card = event.currentTarget.closest(".card");
+    const card = event.closest(".card");
     const cardTitle = card.querySelector(".card-title").innerText;
     const cardText = card.querySelector(".card-text").innerText;
     card.style.border = "2px solid red"
@@ -115,10 +57,52 @@ const addToCartFun = (event) => {
 
 // 5) When pressed, the button should remove from the page the item not interesting from the user
 const skipFun = (event) => {
-    const card = event.currentTarget.closest(".col.mb-4");
+    const card = event.closest(".col.mb-4");
     card.remove()
 };
 
+// 6-1)"search bar", When the user types more than 3 chars, you should filter the content of the page to show only the items with a matching name (hint: use .filter method)
+const searchFun = (event) => {
+    searchQuery = event.value.toLowerCase()
+    if (searchQuery.length >= 3) {
+        const filteredBooks = bookCatalogue.filter(book => book.title.toLowerCase().indexOf(searchQuery) !== -1)
+
+        const divRow = document.querySelector("div.container div.row.row-cols-1.row-cols-md-3");
+        divRow.innerHTML = ""
+        filteredBooks.forEach((element) => {
+            divRow.innerHTML += `
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="${element.img}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">${element.title}</h5>
+                <p class="card-text text-center text-danger"><strong>$${element.price}</strong></p>
+                <button class="addToCartButton btn btn-primary">Add to Cart</button>
+                <button class="skipButton btn btn-primary">Skip</button>
+            </div>
+        </div>
+    </div>
+    `;
+        });
+    } else {
+        divRow.innerHTML = ""
+        books.forEach((element) => {
+            divRow.innerHTML += `
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="${element.img}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">${element.title}</h5>
+                <p class="card-text text-center text-danger"><strong>$${element.price}</strong></p>
+                <button class="addToCartButton btn btn-primary">Add to Cart</button>
+                <button class="skipButton btn btn-primary">Skip</button>
+            </div>
+        </div>
+    </div>
+    `;
+        });
+    }
+}
 
 // 7) Allow the user to delete items from the cart list
 
@@ -147,3 +131,4 @@ const CleanCartFun = () => {
 
 // 9) Create a second "detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
 // 10) In page "detail" show some details of the selected product (https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
+

@@ -18,19 +18,6 @@
     <title>Bookstore</title>
   </head>
   <body>
-    <!-- <header class="p-3 bg-dark text-white">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            
-      
-            <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2">Login</button>
-              <button type="button" class="btn btn-warning">Sign-up</button>
-            </div>
-          </div>
-        </div>
-      </header> -->
-
     <header class="p-2 bg-dark text-white fixed-top">
       <div class="d-flex flex-wrap justify-content-between align-items-center">
         <h4 class="font-weight-normal">Strive Bookstore</h4>
@@ -72,6 +59,7 @@
               type="search"
               class="searchInput form-control"
               placeholder="Search..."
+              onkeyup="searchFun(this)"
             />
           </form>
         </div>
