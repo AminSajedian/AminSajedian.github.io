@@ -45,15 +45,37 @@
   </head>
   <body>
     <main class="main">
-      <h1>Users</h1>
-            <form>
-            <label for="searchUsers">Search Users:</label><br>
-            <input type="search" Users="searchUsers" id="searchUsers" onkeyup="searchUsersFun()"><br>
-            <select name="user" id="Users">
-            </select><br>
-            
-            <br>
-            </form>
+      <form>
+        <label for="searchInput">Search by:</label>
+        <select name="user" id="searchBy">
+          <option value="name">Name</option>
+          <option value="username">Username</option>
+          <option value="email">Email</option>
+        </select>
+
+        <input
+          type="search"
+          Users="searchInput"
+          id="searchInput"
+          onkeyup="searchInputFun()"
+        />
+        
+      </form>
+      <h2>Users</h2>
+      <div id="results-div">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
