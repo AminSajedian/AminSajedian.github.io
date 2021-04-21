@@ -129,13 +129,16 @@
         document.getElementById("home-link").href =
           hrefWithoutFileName + "index.html";
       };
-      // ***************** /SET URL OF PAGES *****************
 
       window.onload = async function () {
         setURLofPages();
       };
+      // ***************** /SET URL OF PAGES *****************
+
+      
 
       // ***************** POST METHOD *****************
+      
       // newProduct = {
       //   name: "app test 2", //REQUIRED
       //   description: "somthing longer", //REQUIRED
@@ -155,8 +158,6 @@
           imageUrl: document.querySelector("#imageUrl").value,
           price: document.querySelector("#price").value,
         };
-
-        console.log(newProduct);
 
         try {
           const response = await fetch(endpoint, {
