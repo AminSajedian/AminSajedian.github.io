@@ -105,10 +105,17 @@
             <!--Product Price-->
             <label>Product Price</label>
             <input
-              id="price"
               type="number"
               class="form-control"
-              placeholder="Write here product price"
+              id="price"
+              placeholder="0.00"
+              required
+              name="price"
+              min="0"
+              value="0"
+              step="0.01"
+              title="Currency"
+              pattern="^\d+(?:\.\d{1,2})?$"
             />
 
             <div class="d-flex">
@@ -135,10 +142,8 @@
       };
       // ***************** /SET URL OF PAGES *****************
 
-      
-
       // ***************** POST METHOD *****************
-      
+
       // newProduct = {
       //   name: "app test 2", //REQUIRED
       //   description: "somthing longer", //REQUIRED
@@ -149,7 +154,7 @@
       // };
 
       let endpoint = "https://striveschool-api.herokuapp.com/api/product/";
-      async function addNewProducts(event){
+      async function addNewProducts(event) {
         event.preventDefault();
         const newProduct = {
           name: document.querySelector("#name").value,
@@ -175,7 +180,7 @@
         } catch (error) {
           alert(error.message);
         }
-      };
+      }
       // ***************** /POST METHOD *****************
     </script>
 
