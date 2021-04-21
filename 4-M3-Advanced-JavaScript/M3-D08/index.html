@@ -21,33 +21,50 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-              <a class="nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
-              <a class="nav-link" href="backoffice.html">Back Office</a>
-          </div>
+        <div class="navbar-nav">
+          <a class="nav-link active" href="#"
+            >Home<span class="sr-only">(current)</span></a
+          >
+          <a class="nav-link" href="" id="backoffice-link">Back Office</a>
+        </div>
       </div>
-  </nav>
+    </nav>
 
-
-  <div class="container">
-      <div class="row">
-          <div class="col-12 col-md-6 mx-auto">
-              <h1 class="text-center my-5">Products</h1>
-
-              <ul id="products-list" class="list-group">
-                  <!--
-                      <li class="list-group-item">An item</li>
-                  -->
-              </ul>
-
-          </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <h1 class="text-center my-5">Products</h1>
+            <table
+              class="table table-hover table-responsive center"
+              id="products-table"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Brand</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+        </div>
       </div>
-  </div>
+    </div>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -61,11 +78,22 @@
     ></script>
 
     <!-- API scripts -->
-    
     <script>
+      // ***************** SET URL OF PAGES *****************
+      const setURLofPages = () => {
+        let hrefWithoutFileName = location.href.replace(
+          /\/[^\/]+?\.[^\/]+?$/,
+          "/"
+        );
+        document.getElementById("backoffice-link").href =
+          hrefWithoutFileName + "backoffice.html";
+      };
+      // ***************** /SET URL OF PAGES *****************
+
       // ***************** GET METHOD *****************
       let endpoint = "https://striveschool-api.herokuapp.com/api/product/";
       window.onload = async function () {
+        setURLofPages();
         try {
           const products = await loadProducts();
           displayProducts(products);
@@ -73,6 +101,7 @@
           alert(error.message);
         }
       };
+
       const loadProducts = async () => {
         const response = await fetch(endpoint, {
           headers: {
@@ -83,42 +112,24 @@
         const data = await response.json();
         return data;
       };
+
       const displayProducts = (products) => {
         console.log("products:", products);
+        let productsTable = document.querySelector("#products-table > tbody");
+        products.forEach((product) => {
+          productsTable.innerHTML += `
+           <tr>
+              <td>${product._id}</td>
+              <td><img src="${product.imageUrl}" class="img-fluid"></td>
+              <td>${product.name}</td>
+              <td>${product.description}</td>
+              <td>${product.brand}</td>
+              <td>$${product.price}</td>
+           </tr>
+        `;
+        });
       };
       // ***************** /GET METHOD *****************
-
-
-      // ***************** POST METHOD *****************
-      newProduct = {
-        name: "app test 1", //REQUIRED
-        description: "somthing longer", //REQUIRED
-        brand: "nokia", //REQUIRED
-        imageUrl:
-          "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
-        price: 100, //REQUIRED
-      };
-
-      const addNewProducts = async () => {
-        try {
-          const response = await fetch(endpoint, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGNjMGIxZjBmYjAwMTVkOTE3MDYiLCJpYXQiOjE2MTkwMDQ2MDksImV4cCI6MTYyMDIxNDIwOX0.DGDlgKpWowe1bbzGnpP8h09QTfnZMSrDp93COWwfleU",
-            },
-            body: JSON.stringify(newProduct),
-          });
-          if (!response.ok) throw new Error("Failed to post");
-          const data = await response.json();
-          alert("Products added successfully with id " + data._id);
-        } catch (error) {
-          alert(error.message);
-        }
-      };
-      // ***************** /POST METHOD *****************
-
 
     </script>
   </body>

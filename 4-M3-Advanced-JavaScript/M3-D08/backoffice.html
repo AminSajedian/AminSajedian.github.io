@@ -1,165 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
 
-    <title>Backoffice!</title>
+    <title>Back Office</title>
 
     <style>
-        input {
-            margin-bottom: 1em
-        }
+      input {
+        margin-bottom: 1em;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="index.html">Home</a>
-                <a class="nav-link active" href="#">Backoffice <span class="sr-only">(current)</span></a>
-            </div>
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="" id="home-link">Home</a>
+          <a class="nav-link active" href="#"
+            >Back Office<span class="sr-only">(current)</span></a
+          >
         </div>
+      </div>
     </nav>
 
     <div class="container">
-        <div class="row">
-            <div class="col-10 col-md-6 mx-auto">
-                <h1 class="text-center my-5">Backoffice</h1>
+      <div class="row">
+        <div class="col-10 col-md-6 mx-auto">
+          <h1 class="text-center my-5">Back Office</h1>
 
-                <form onsubmit="handleSubmit(event)">
-
-                    <!-- 
-                        {
-                            "_id": "6065a236df175c00150ea3ba",          // server-generated
-                            "name": "First event",
-                            "description": "nope",
-                            "price": 1,
-                            "time": "2021-04-01T12:36:00.000Z",
-                            "createdAt": "2021-04-01T10:36:38.067Z",    // server-generated
-                            "updatedAt": "2021-04-01T10:36:38.067Z",    // server-generated
-                            "__v": 0                                    // server-generated
-                        }    
+          <form onsubmit="addNewProducts(event)">
+            <!-- 
+                {
+                    name: "app test 2", //REQUIRED
+                    description: "somthing longer", //REQUIRED
+                    brand: "nokia", //REQUIRED
+                    imageUrl:
+                    "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
+                    price: 100, //REQUIRED
+                };  
                     -->
-                    <!--Event Name-->
-                    <label>Event Name</label>
-                    <input id="name" type="text" class="form-control" placeholder="Write here event name">
 
-                    <!--Event Description-->
-                    <label>Event Description</label>
-                    <input id="description" type="text" class="form-control" placeholder="Write here event description">
+            <!--Product Name-->
+            <label>Product Name</label>
+            <input
+              id="name"
+              type="text"
+              class="form-control"
+              placeholder="Write here product name"
+            />
 
-                    <!--Event Price-->
-                    <label>Event Price</label>
-                    <input id="price" type="number" class="form-control" placeholder="Write here event price">
+            <!--Product Description-->
+            <label>Product Description</label>
+            <input
+              id="description"
+              type="text"
+              class="form-control"
+              placeholder="Write here product description"
+            />
 
-                    <!--Event Date and time-->
-                    <label>Event Date and Time</label>
-                    <input id="time" type="datetime-local" class="form-control"
-                        placeholder="Write here event date and time">
+            <!--Product brand-->
+            <label>Product Brand</label>
+            <input
+              id="brand"
+              type="text"
+              class="form-control"
+              placeholder="Write here product description"
+            />
 
-                    <div class="d-flex">
-                        <input type="submit" class="btn btn-primary w-50 mx-auto">
-                    </div>
+            <!--Product imageUrl-->
+            <label>Product Image URL</label>
+            <input
+              id="imageUrl"
+              type="text"
+              class="form-control"
+              placeholder="Write here product description"
+            />
 
-                </form>
+            <!--Product Price-->
+            <label>Product Price</label>
+            <input
+              id="price"
+              type="number"
+              class="form-control"
+              placeholder="Write here product price"
+            />
 
+            <div class="d-flex">
+              <input type="submit" class="btn btn-primary w-50 mx-auto" />
             </div>
+          </form>
         </div>
+      </div>
     </div>
 
     <script>
-        const endpoint = "https://striveschool-api.herokuapp.com/api/agenda"
+      // ***************** SET URL OF PAGES *****************
+      const setURLofPages = () => {
+        let hrefWithoutFileName = location.href.replace(
+          /\/[^\/]+?\.[^\/]+?$/,
+          "/"
+        );
+        document.getElementById("home-link").href =
+          hrefWithoutFileName + "index.html";
+      };
+      // ***************** /SET URL OF PAGES *****************
 
-        async function handleSubmit(event) {
-            event.preventDefault();
+      window.onload = async function () {
+        setURLofPages();
+      };
 
-            const newEvent = {
-                name: document.querySelector("#name").value,
-                description: document.querySelector("#description").value,
-                price: document.querySelector("#price").value,
-                time: document.querySelector("#time").value
-            };
+      // ***************** POST METHOD *****************
+      // newProduct = {
+      //   name: "app test 2", //REQUIRED
+      //   description: "somthing longer", //REQUIRED
+      //   brand: "nokia", //REQUIRED
+      //   imageUrl:
+      //     "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
+      //   price: 100, //REQUIRED
+      // };
 
-            console.log(newEvent)
+      let endpoint = "https://striveschool-api.herokuapp.com/api/product/";
+      async function addNewProducts(event){
+        event.preventDefault();
+        const newProduct = {
+          name: document.querySelector("#name").value,
+          description: document.querySelector("#description").value,
+          brand: document.querySelector("#brand").value,
+          imageUrl: document.querySelector("#imageUrl").value,
+          price: document.querySelector("#price").value,
+        };
 
-            // const response = await fetch(endpoint, {
-            //     method: "POST", // "GET", "POST", "PUT", "DELETE"
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify(newEvent)
-            // })
+        console.log(newProduct);
 
-            // if (response.ok) {
-            //     const data = await response.json()
-
-            //     alert("Event added successfully with id " + data._id)
-            // } else {
-            //     alert("Something went wrong.")
-            // }
-
-            try {
-                const response = await fetch(endpoint, {
-                    method: "POST", // "GET", "POST", "PUT", "DELETE"
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newEvent)
-                })
-
-                if (!response.ok) throw new Error("Failed to post")
-
-                const data = await response.json()
-                alert("Event added successfully with id " + data._id)
-
-            } catch (error) {
-                alert(error.message)
-            }
-
-
-            // status code
-
-            // response.ok is just a check made from fetch that the status is "success"
-
-            // 200-299 // success
-
-            // 400-499 // client-side request error
-            // 500-599 // server side error
-
-
-
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGNjMGIxZjBmYjAwMTVkOTE3MDYiLCJpYXQiOjE2MTkwMDQ2MDksImV4cCI6MTYyMDIxNDIwOX0.DGDlgKpWowe1bbzGnpP8h09QTfnZMSrDp93COWwfleU",
+            },
+            body: JSON.stringify(newProduct),
+          });
+          if (!response.ok) throw new Error("Failed to post");
+          const data = await response.json();
+          alert("Products added successfully with id " + data._id);
+        } catch (error) {
+          alert(error.message);
         }
+      };
+      // ***************** /POST METHOD *****************
     </script>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
