@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <title>Detail Page</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Amazon</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="backoffice.html">Back Office</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-10 col-md-6 mx-auto">
+          <h1 class="text-center my-3">Products Detail</h1>
+
+          <div>
+            <p class="d-flex justify-content-between">
+              <strong>ID:</strong>
+              <span id="id"></span>
+            </p>
+          </div>
+          <div class="d-flex justify-content-center">
+            <img class="" id="imageUrl" style="max-height: 200px" />
+          </div>
+          <div>
+            <div><strong>Name:</strong></div>
+            <p id="name"></p>
+          </div>
+          <div>
+            <div><strong>Description:</strong></div>
+            <p id="description"></p>
+          </div>
+          <div>
+            <p class="d-flex justify-content-between">
+              <strong>Brand:</strong>
+              <span id="brand"></span>
+            </p>
+          </div>
+          <div>
+            <p class="d-flex justify-content-between">
+              <strong>Price:</strong>
+              <span id="price"></span>
+            </p>
+          </div>
+
+          <div class="d-flex" id="edit"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const id = params.get("id");
+
+      const endpoint = "https://striveschool-api.herokuapp.com/api/product/";
+
+      window.onload = async () => {
+        const response = await fetch(endpoint + id, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGNjMGIxZjBmYjAwMTVkOTE3MDYiLCJpYXQiOjE2MTkwMDQ2MDksImV4cCI6MTYyMDIxNDIwOX0.DGDlgKpWowe1bbzGnpP8h09QTfnZMSrDp93COWwfleU",
+          },
+        });
+        const product = await response.json();
+        displayProduct(product);
+      };
+
+      function displayProduct(product) {
+        document.querySelector("#id").innerHTML = product._id;
+        document.querySelector("#imageUrl").src = product.imageUrl;
+        document.querySelector("#name").innerHTML = product.name;
+        document.querySelector("#description").innerHTML = product.description;
+        document.querySelector("#brand").innerHTML = product.brand;
+        document.querySelector("#price").innerHTML = product.price;
+
+        let backofficeLink =
+          location.href.replace(/\/[^\/]+?\.[^\/]+?$/, "/") + "backoffice.html";
+
+        document.querySelector("#edit").innerHTML = `
+                <a class="btn btn-primary mx-auto w-50" href="${backofficeLink}?id=${product._id}">Edit</a>
+            `;
+      }
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
