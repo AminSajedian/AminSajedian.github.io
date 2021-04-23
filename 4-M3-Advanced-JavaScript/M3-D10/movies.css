@@ -1,0 +1,46 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.testimonial-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .testimonial-group {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    background: #111;
+  }
+  .btn-without-outline {
+    border: none;
+  }
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .col-xs-4 {
+    flex: 0 0 auto;
+  }
+  footer ul li {
+    color: #777;
+  }
+  .btn-color {
+    color: #999;
+    border: 1px solid white;
+  }
+  #TV-Shows {
+    display: inline;
+  }
+
+  .genre-details {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  p{
+    color:white;
+  }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <title>Movies</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-link" href="backoffice.html">Backoffice</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-10 col-md-6 mx-auto">
+          <h1 class="text-center my-5">Strive Movies</h1>
+
+          <ul id="movie-list" class="list-group">
+            <!--
+                        <li class="list-group-item">An item</li>
+                    -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const movieList = document.querySelector("#movie-list");
+      const endpoint = "https://api.themoviedb.org/3/list1/";
+
+      window.onload = async function () {
+        try {
+          const movies = await loadMovies();
+          displayMovies(movies);
+        } catch (error) {
+          alert(error.message);
+        }
+      };
+
+      async function loadMovies() {
+        const response = await fetch("https://api.themoviedb.org/4/list/8", {
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMWI3Nzc3ZDRhYTJjMTE2MDllYmEyZjRlODUyYTQyNCIsInN1YiI6IjYwODI5YmJkZDM1ZGVhMDAzZmU3YTUyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.w4YRmL2xSml-GPGmzFMwUh6F4D2761pkecfL4N2s82s",
+          },
+          redirect: "follow",
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return data.results;
+        } else {
+          throw new Error("Failed to fetch movies");
+        }
+      }
+
+      async function displayMovies(movies) {
+        movieList.innerHTML = "";
+
+        console.log(movies);
+
+        for (let movie of movies) {
+          if ((movie.genre_ids = 35)) {
+            const newEvent = {
+              name: movie.original_title,
+              description: movie.overview,
+              category: "comedy",
+              imageUrl: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+            };
+
+            console.log(newEvent);
+            try {
+              const response = await fetch(
+                "https://striveschool-api.herokuapp.com/api/movies/",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization:
+                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGNjMGIxZjBmYjAwMTVkOTE3MDYiLCJpYXQiOjE2MTkwMDQ2MDksImV4cCI6MTYyMDIxNDIwOX0.DGDlgKpWowe1bbzGnpP8h09QTfnZMSrDp93COWwfleU",
+                  },
+                  body: JSON.stringify(newEvent),
+                }
+              );
+            } catch (error) {
+              console.log(error);
+              alert(error.message);
+            }
+          }
+        }
+      }
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
