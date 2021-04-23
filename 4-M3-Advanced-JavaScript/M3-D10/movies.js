@@ -40,7 +40,7 @@ function displayMovies(movies) {
         moviesGroup.innerHTML +=
             `
         <div class="col-xs-4 text-center mb-3 mb-lg-0 px-1">
-          <a href="backoffice.html?id=${movie._id}&${movie.category}"><img class="img-fluid rounded" src="${movie.imageUrl}" width="200px"/>
+          <a href="backoffice.html?id=${movie._id}&name=${movie.name}&description=${movie.description}&category=${movie.category}&imageUrl=${movie.imageUrl}"><img class="img-fluid rounded" src="${movie.imageUrl}" width="200px"/>
           <p>${movie.name}</p></a>
         </div>
         `

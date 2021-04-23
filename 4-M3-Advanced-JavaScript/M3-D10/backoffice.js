@@ -1,5 +1,9 @@
 const params = new URLSearchParams(location.search)
 const id = params.get('id')
+const MovieName = params.get('name')
+const MovieDescription = params.get('description')
+const MovieCategory = params.get('category')
+const MovieImageUrl = params.get('imageUrl')
 
 const endpoint =
     id
@@ -11,9 +15,9 @@ const method = id ? "PUT" : "POST"
 const operation = document.querySelector("#operation")
 
 window.onload = async () => {
-    
+
     if (id) {
-        document.getElementById("movie-id").innerHTML=`You Selected the Movie with ID:<br> ${id} <br> You can Delete of edit the movie right now`
+        document.getElementById("movie-id").innerHTML = `You Selected the Movie with ID:<br> ${id} <br> You can Delete of edit the movie right now`
         operation.innerHTML = "Editing Movie"
 
         try {
@@ -52,10 +56,10 @@ window.onload = async () => {
 }
 
 function populateFields(movie) {
-    // document.querySelector('#name').value = movie.name
-    // document.querySelector('#description').value = movie.description
-    // document.querySelector('#movie-category').value = movie.category
-    // document.querySelector('#movie-poster').value = movie.imageUrl
+    document.querySelector('#name').value = MovieName
+    document.querySelector('#description').value = MovieDescription
+    document.querySelector('#movie-category').value = MovieCategory
+    document.querySelector('#movie-poster').value = MovieImageUrl
 }
 
 async function handleSubmit(event) {
