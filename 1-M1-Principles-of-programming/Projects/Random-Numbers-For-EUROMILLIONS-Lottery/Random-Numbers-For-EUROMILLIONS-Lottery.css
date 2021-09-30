@@ -18,9 +18,12 @@ table {
   border: 1px solid black;
 }
 td {
-  border: 1px solid black;
+  border: 2px solid gray;
   border-radius: 50%;
   text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: large;
 }
 mark {
   border-radius: 50%;
@@ -29,4 +32,7 @@ button {
   margin-top: 5px;
   margin-left: 50%;
   transform: translateX(-50%);
+}
+.backgroundYellow {
+  background-color: yellow;
 }
