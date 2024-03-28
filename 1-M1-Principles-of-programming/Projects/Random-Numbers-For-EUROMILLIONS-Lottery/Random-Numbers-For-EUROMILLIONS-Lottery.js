@@ -32,17 +32,30 @@ function boardMaker(parentId, maxCellNumber, rowNumber, columnNumber, buttonText
     let randomNumber = Math.floor(Math.random() * maxCellNumber) + 1;
     const chosenCell = document.getElementById(`${parentId}-cell-${randomNumber}`);
 
+    // Zero > Low > Medium > high > Max
+    // Blue > Green > Yellow > Orange > Red
     if (chosenCell.style.backgroundColor == "") {
-      chosenCell.style = "background-color: rgba(255, 255, 0, 0.2);"
-    } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.2)") {
-      chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.4)"
-    } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.4)") {
-      chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.6)"
-    } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.6)") {
-      chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.8)"
-    } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.8)") {
-      chosenCell.style.backgroundColor = "rgba(255, 255, 0, 1)"
+      chosenCell.style = "background-color: lightblue;"
+    } else if (chosenCell.style.backgroundColor == "lightblue") {
+      chosenCell.style.backgroundColor = "lightgreen"
+    } else if (chosenCell.style.backgroundColor == "lightgreen") {
+      chosenCell.style.backgroundColor = "yellow"
+    } else if (chosenCell.style.backgroundColor == "yellow") {
+      chosenCell.style.backgroundColor = "orange"
+    } else if (chosenCell.style.backgroundColor == "orange") {
+      chosenCell.style.backgroundColor = "red"
     }
+    // if (chosenCell.style.backgroundColor == "") {
+    //   chosenCell.style = "background-color: rgba(255, 255, 0, 0.2);"
+    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.2)") {
+    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.4)"
+    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.4)") {
+    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.6)"
+    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.6)") {
+    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.8)"
+    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.8)") {
+    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 1)"
+    // }
 
   }
 
