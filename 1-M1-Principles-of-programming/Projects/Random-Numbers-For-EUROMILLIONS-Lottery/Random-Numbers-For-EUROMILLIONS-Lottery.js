@@ -45,18 +45,6 @@ function boardMaker(parentId, maxCellNumber, rowNumber, columnNumber, buttonText
     } else if (chosenCell.style.backgroundColor == "orange") {
       chosenCell.style.backgroundColor = "red"
     }
-    // if (chosenCell.style.backgroundColor == "") {
-    //   chosenCell.style = "background-color: rgba(255, 255, 0, 0.2);"
-    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.2)") {
-    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.4)"
-    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.4)") {
-    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.6)"
-    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.6)") {
-    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 0.8)"
-    // } else if (chosenCell.style.backgroundColor == "rgba(255, 255, 0, 0.8)") {
-    //   chosenCell.style.backgroundColor = "rgba(255, 255, 0, 1)"
-    // }
-
   }
 
   button.onclick = randomNumberMaker
