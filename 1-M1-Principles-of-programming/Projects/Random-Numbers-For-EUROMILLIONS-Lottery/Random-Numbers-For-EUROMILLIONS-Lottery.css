@@ -3,17 +3,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: center;
 }
 input,
 label,
 table {
   margin: 5px;
-  align-self: center;
 }
-div #bingo {
+/* div #bingo {
   align-self: center;
-}
+} */
 table {
   border: 1px solid black;
 }
@@ -30,9 +28,10 @@ mark {
 }
 button {
   margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: 50%;
   transform: translateX(-50%);
 }
-.backgroundYellow {
+/* .backgroundYellow {
   background-color: yellow;
-}
+} */
