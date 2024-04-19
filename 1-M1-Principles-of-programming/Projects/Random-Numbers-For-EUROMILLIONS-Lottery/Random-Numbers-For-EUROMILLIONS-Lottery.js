@@ -50,56 +50,56 @@ function boardMakerV1(parentId, maxCellNumber, rowNumber, columnNumber, buttonTe
   button.onclick = randomNumberMaker
 }
 
-function boardMakerV2(parentId, cellsNumber, maxRowsNumber, buttonText) {
+function boardMakerV2(parentId, numCells, maxNumCols, buttonText) {
   //  ******** Define the number of rows and columns in the table ********
   let numRows = 0;
   let numCols = 0;
-  if (cellsNumber < maxRowsNumber) {
-    numRows = cellsNumber;
-    numCols = Math.ceil(cellsNumber / numRows);
+  if (numCells < maxNumCols) {
+    numCols = numCells;
+    numRows = Math.ceil(numCells / numCols);
   } else {
-    numRows = maxRowsNumber;
-    numCols = Math.ceil(cellsNumber / numRows);
+    numCols = maxNumCols;
+    numRows = Math.ceil(numCells / numCols);
   }
+  // console.log("numCols: ", numCols);
+  // console.log("numRows: ", numRows);
 
-  // ******** Create an arrays for cells, rows, and columns ********
-  const cells = Array.from({ length: cellsNumber }, (_, index) => {
+  // ******** Create an arrays for cells ********
+  const cells = Array.from({ length: numCells }, (_, index) => {
     number = index + 1;
     // row = Math.ceil(number / numCols);
     // col = number % numCols === 0 ? numCols : number % numCols;
-    console.log("index: ", index);
-    console.log("number: ", number);
     console.log("-------------------");
     return ({ number })
   });
   const rows = Array.from({ length: numRows }, (_, index) => index + 1);
   const columns = Array.from({ length: numCols }, (_, index) => index + 1);
-  console.log("cells: ", cells);
+  // console.log("cells: ", cells);
 
-  // ******** Create a table and tbody ********
+  // ******** Create a list and items ********
   const parentElement = document.getElementById(parentId);
-  const table = document.createElement("table");
-  parentElement.appendChild(table);
-  const tbody = document.createElement("tbody");
-  table.appendChild(tbody);
+  const list = document.createElement("ul");
+  parentElement.appendChild(list);
 
+  cells.forEach(cell => {
+    let item = document.createElement("li");
+    list.appendChild(item);
+    item.innerText = cell.number
+    item.id = `${parentId}-cell-${cell.number}`;
+    //     tableRow.appendChild(item);
+  });
 
-  // ******** insert numbers to a table ********
-  // let tableRow = document.createElement("tr");
-  // tbody.appendChild(tableRow);
-
-
-  rows.forEach(rowElement => {
-    let tableRow = document.createElement("tr");
-    tbody.appendChild(tableRow);
-    columns.forEach(colElement => {
-      let tableCell = document.createElement("td");
-      tableCell.innerText = cellElement.number
-      // ********** Add id to the table cell **********
-      tableCell.id = `${parentId}-cell-${cellElement.number}`;
-      tableRow.appendChild(tableCell);
-    });
-  })
+  // rows.forEach(rowElement => {
+  //   let tableRow = document.createElement("tr");
+  //   tbody.appendChild(tableRow);
+  //   columns.forEach(colElement => {
+  //     let tableCell = document.createElement("td");
+  //     tableCell.innerText = cellElement.number
+  //     // ********** Add id to the table cell **********
+  //     tableCell.id = `${parentId}-cell-${cellElement.number}`;
+  //     tableRow.appendChild(tableCell);
+  //   });
+  // })
 
   // // ******* Create a button for table *******
   // const button = document.createElement("button");
