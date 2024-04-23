@@ -79,14 +79,19 @@ function boardMakerV2(parentId, numCells, maxNumCols, buttonText) {
   // ******** Create a list and items ********
   const parentElement = document.getElementById(parentId);
   const list = document.createElement("ul");
+  list.classList.add("grid-container");
   parentElement.appendChild(list);
+
+  list.style.display = 'grid';
+  list.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
+  list.style.gap = '10px';
 
   cells.forEach(cell => {
     let item = document.createElement("li");
     list.appendChild(item);
     item.innerText = cell.number
-    item.id = `${parentId}-cell-${cell.number}`;
-    //     tableRow.appendChild(item);
+    // item.id = `${parentId}-cell-${cell.number}`;
+    item.classList.add("grid-item");
   });
 
   // rows.forEach(rowElement => {
@@ -116,7 +121,7 @@ function boardMakerV2(parentId, numCells, maxNumCols, buttonText) {
 }
 
 window.onload = () => {
-  boardMakerV2("test-board", 12, 5, "Play Main Board")
+  boardMakerV2("test-board", 12, 4, "Play Main Board")
 
   boardMakerV1("main-board", 50, 5, 10, "Play Main Board")
   boardMakerV1("lucky-star-board", 12, 2, 6, "Play Lucky Star Board")
