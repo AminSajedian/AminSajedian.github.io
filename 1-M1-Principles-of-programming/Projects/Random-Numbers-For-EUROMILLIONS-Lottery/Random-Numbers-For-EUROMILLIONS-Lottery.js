@@ -118,7 +118,6 @@ function boardMakerV2(parentId, numCells, maxNumCols, buttonText) {
   // }
 
   // button.onclick = randomNumberMaker
-  
 }
 
 window.onload = () => {
